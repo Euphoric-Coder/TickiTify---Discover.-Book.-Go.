@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const EventCard = () => {
-  return (
-    <div>EventCard</div>
-  )
-}
+const EventCard = ({ eventId }) => {
+  return <div>Event ID: {eventId}</div>;
+};
 
-export default EventCard
+export default EventCard;

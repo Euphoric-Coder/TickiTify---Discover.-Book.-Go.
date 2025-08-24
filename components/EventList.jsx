@@ -18,6 +18,7 @@ export default function EventList() {
     );
   }
 
+  console.log(events);
   const upcomingEvents = events
     .filter((event) => event.eventDate > Date.now())
     .sort((a, b) => a.eventDate - b.eventDate);
