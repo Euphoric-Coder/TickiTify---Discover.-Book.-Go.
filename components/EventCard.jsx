@@ -18,6 +18,7 @@ import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 // import { useStorageUrl } from "@/lib/utils";
 import Image from "next/image";
+import { useStorageUrl } from "@/convex/storage";
 
 const EventCard = ({ eventId }) => {
   const { user } = useUser();
@@ -32,6 +33,15 @@ const EventCard = ({ eventId }) => {
     eventId,
     userId: user?.id ?? "",
   });
+  const imageUrl = useStorageUrl(event?.imageStorageId);
+
+  if (!event || !availability) {
+    return null;
+  }
+
+  const isPastEvent = event.eventDate < Date.now();
+
+  const isEventOwner = user?.id === event?.userId;
   return <div>Event ID: {eventId}</div>;
 };
 
