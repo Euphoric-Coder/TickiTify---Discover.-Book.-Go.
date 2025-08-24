@@ -8,9 +8,8 @@ import Loader from "./Loader";
 
 export default function EventList() {
   const events = useQuery(api.events.get);
-  const x = 0;
 
-  if (!events && x === 0) {
+  if (!events) {
     return (
       <div className="min-h-[400px] flex items-center justify-center">
         <Loader />
